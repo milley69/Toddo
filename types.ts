@@ -4,6 +4,7 @@ export interface UserPinia {
   user: User | null
   uid: string | null
   status: authStatus
+  isGradientBackground: boolean
   // errorForm: userForm
 }
 

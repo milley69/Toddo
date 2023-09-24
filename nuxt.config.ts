@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     fallback: 'light',
     classSuffix: '',
     dataValue: 'theme',
+    storageKey: 'toddo-color-mode',
   },
   app: {
     head: {

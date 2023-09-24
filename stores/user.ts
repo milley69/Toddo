@@ -6,6 +6,7 @@ export const useUser = defineStore('UserPinia', {
     user: null,
     uid: null,
     status: 'unauthenticated',
+    isGradientBackground: true,
   }),
   getters: {
     isAuth({ status }) {

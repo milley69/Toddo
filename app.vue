@@ -1,14 +1,32 @@
 <template>
   <app-navbar />
-  <main class="pt-16 container mx-auto w-full">
-    <p v-if="isAuth">{{ isAuth }}</p>
-    <p v-else>{{ isAuth }} | 🤔</p>
+  <main class="pt-16 w-full">
+    <nuxt-page />
   </main>
+  <lazy-app-footer />
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-const { isAuth } = storeToRefs(useUser())
+const { isGradientBackground } = storeToRefs(useUser())
+
+onMounted(() => {
+  if (localStorage.getItem('toddo-enable-animation') === 'true' || !('toddo-enable-animation' in localStorage)) {
+    localStorage.setItem('toddo-enable-animation', 'true')
+    isGradientBackground.value = true
+  } else {
+    localStorage.setItem('toddo-enable-animation', 'false')
+    isGradientBackground.value = false
+  }
+})
+
+watch(
+  () => isGradientBackground.value,
+  (value) => {
+    localStorage.setItem('toddo-enable-animation', JSON.stringify(value))
+    isGradientBackground.value = value
+  }
+)
 </script>
 
 <style>

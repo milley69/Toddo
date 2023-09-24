@@ -4,14 +4,15 @@
   >
     <nav class="navbar w-full container">
       <div class="flex-1">
-        <nuxt-link to="/" class="btn btn-ghost normal-case text-xl">{{ title }}</nuxt-link>
+        <nuxt-link to="/" class="btn btn-ghost normal-case text-xl">Toddo</nuxt-link>
       </div>
-      <div class="flex-none gap-3">
+      <div class="flex-none gap-2">
         <UIThemeSwitcher />
-        <app-navbar-auth v-if="isAuth" />
+        <app-navbar-user v-if="isAuth" :user="user" />
+        <app-navbar-auth v-else />
       </div>
     </nav>
-    <div class="nuxt-loader-bar"></div>
+    <div class="border-bar fixed bottom-0 inset-x-0 h-0.5"></div>
   </header>
 </template>
 
@@ -29,34 +30,28 @@ onMounted(() => {
   })
 })
 
-const title = computed(() => (user.value ? user.value.name : 'Toddo'))
+// const title = computed(() => (user.value ? user.value.name : 'Toddo'))
 </script>
 
-<style scoped>
+<style>
 @media (prefers-color-scheme: dark) {
-  .nuxt-loader-bar {
+  .border-bar {
     opacity: 0.5;
   }
 }
-.nuxt-loader-bar {
+.border-bar {
   background: repeating-linear-gradient(to right, #36e4da 0%, #1de0b1 25%, #00dc82 50%, #1de0b1 75%, #36e4da 100%);
   background-size: 200% auto;
   background-position: 0 0;
   animation: gradient 2s infinite;
   animation-fill-mode: forwards;
   animation-timing-function: linear;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
 }
 
 @keyframes gradient {
   0% {
     background-position: 0 0;
   }
-
   100% {
     background-position: -200% 0;
   }

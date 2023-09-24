@@ -1,8 +1,8 @@
 <template>
-  <div class="dropdown dropdown-end">
-    <nuxt-link to="/sign-in" class="btn btn-ghost btn-circle avatar">
-      <!-- <i class="bx bxs-log-in bx-sm"></i> -->
-      Выйти
-    </nuxt-link>
-  </div>
+  <!-- <button class="btn btn-outline normal-case text-base leading-7 m-1" @click="push('sign-in')">Sign in</button> -->
+  <button class="btn btn-outline btn-square" @click="push('sign-in')">Sign in</button>
 </template>
+
+<script setup lang="ts">
+const { push } = useRouter()
+</script>

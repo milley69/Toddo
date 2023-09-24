@@ -1,5 +1,5 @@
 <template>
-  <button class="btn btn-ghost drawer-button btn-circle normal-case" @click="setColorTheme()">
+  <button type="button" class="btn btn-square btn-outline" @click="setColorTheme()">
     <i :class="'bx bx-sm ' + isIcon()"></i>
   </button>
 </template>

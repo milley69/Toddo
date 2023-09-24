@@ -6,9 +6,10 @@
   "description": "Toddo - to-do list categorized by groups.",
   "lang": "en",
   "dir": "auto",
-  "theme_color": "#0F1215",
-  "background_color": "#0F1215",
-  "orientation": "landscape",
+  "theme_color": "#1d232a",
+  "background_color": "#1d232a",
+
+  "orientation": "portrait",
   "prefer_related_applications": false,
   "display_override": ["window-controls-overlay", "standalone", "browser"],
 
